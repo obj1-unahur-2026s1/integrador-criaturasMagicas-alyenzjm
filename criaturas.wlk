@@ -45,3 +45,6 @@ class Mascota {
     method obtenerEdad() = edad
     method tieneCuernos()
 }
+class prueba {
+  
+}
