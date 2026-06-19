@@ -1,17 +1,19 @@
 class Criatura {
-    const poderMagico
+    var poderMagico
     const astucia
     var rol
 
     method poderMagico() = poderMagico
 
+    method perderPoderMagico() {poderMagico = poderMagico * 0.85}
+
     method poderOfensivo() = poderMagico * 10 + rol.poderExtra()
 
     method esFormidable() = self.esAstuta() or self.esExtraordinaria()
 
-    method esAstuta() = astucia > 50
+    method esAstuta()
 
-    method esExtraordinaria() = rol.esExtraordinario()
+    method esExtraordinaria() = rol.esExtraordinario(self)
 
     method cambiarDeRolSiPuede() {
         if (rol.puedeCambiarDeRol()) {
@@ -29,6 +31,8 @@ class Hada inherits Criatura {
         kmVuelo = (kmVuelo + cant).min(25)
     }
 
+    override method esAstuta() = astucia > 50
+
     override method esExtraordinaria() = super() and self.kmVuelo() > 10
 }
 
@@ -37,14 +41,4 @@ class Duende inherits Criatura {
 
     override method esAstuta() = false
 
-}
-
-class Mascota {
-    const edad
-
-    method obtenerEdad() = edad
-    method tieneCuernos()
-}
-class prueba {
-  
 }

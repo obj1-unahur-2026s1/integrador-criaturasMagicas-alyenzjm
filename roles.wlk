@@ -5,11 +5,13 @@
 
     method puedeCambiarDeRol() = true
 
-    method cambiarRol() = domador
+    method cambiarRol() = domador //falta agregar mascota
 }
-
+// class domador!!!!!!
 object domador {
     const mascotas = []
+
+    method agregarMascota(unaMascota) {mascotas.add(unaMascota)}
 
     method poderExtra() = 150 * self.cantMascotasConCuernos()
 
